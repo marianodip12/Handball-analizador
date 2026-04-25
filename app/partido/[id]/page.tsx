@@ -117,10 +117,11 @@ export default function PartidoPage({ params }: { params: { id: string } }) {
       </header>
 
       <main className="max-w-[1400px] mx-auto px-4 sm:px-6 py-5 grid grid-cols-1 xl:grid-cols-[1fr_360px] gap-5 items-start">
-        {/* Left column — display:contents in mobile so children stick directly to <main> */}
+        {/* Left column. display:contents on mobile so the sticky video sits as a direct grid child.
+            On xl, becomes a flex-col container — the video (with sticky inside) is the first child. */}
         <div className="contents xl:flex xl:flex-col xl:gap-4 xl:min-w-0">
-          {/* Video — sticky on mobile so it stays visible while scrolling */}
-          <section className="rounded-none sm:rounded-2xl bg-[#0d1117] border-y sm:border border-[#21262d] p-2 sm:p-4 sticky top-[56px] z-30 xl:relative xl:top-auto xl:z-auto shadow-2xl xl:shadow-none -mx-4 sm:mx-0">
+          {/* Video — sticky everywhere */}
+          <section className="rounded-none sm:rounded-2xl bg-[#0d1117] border-y sm:border border-[#21262d] p-2 sm:p-4 sticky top-[56px] xl:top-[70px] z-30 shadow-2xl -mx-4 sm:mx-0 self-start xl:self-stretch">
             <VideoPlayer ref={videoRef} onModeChange={setVideoMode} partidoId={params.id} />
 
             {/* Floating "Editar" button — opens drawing editor directly */}
