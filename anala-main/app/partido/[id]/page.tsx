@@ -119,8 +119,8 @@ export default function PartidoPage({ params }: { params: { id: string } }) {
       <main className="max-w-[1400px] mx-auto px-4 sm:px-6 py-5 grid grid-cols-1 xl:grid-cols-[1fr_360px] gap-5">
         {/* Left column */}
         <div className="flex flex-col gap-4">
-          {/* Video */}
-          <section className="rounded-2xl bg-[#0d1117] border border-[#21262d] p-4">
+          {/* Video — sticky on mobile so it stays visible while scrolling */}
+          <section className="rounded-2xl bg-[#0d1117] border border-[#21262d] p-2 sm:p-4 sticky top-0 z-30 xl:relative xl:top-auto xl:z-auto shadow-lg xl:shadow-none">
             <VideoPlayer ref={videoRef} onModeChange={setVideoMode} partidoId={params.id} />
           </section>
 
