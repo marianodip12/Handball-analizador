@@ -118,10 +118,20 @@ export default function PartidoPage({ params }: { params: { id: string } }) {
 
       <main className="max-w-[1400px] mx-auto px-4 sm:px-6 py-5 grid grid-cols-1 xl:grid-cols-[1fr_360px] gap-5">
         {/* Left column */}
-        <div className="flex flex-col gap-4">
-          {/* Video — sticky on mobile so it stays visible while scrolling */}
-          <section className="rounded-2xl bg-[#0d1117] border border-[#21262d] p-2 sm:p-4 sticky top-0 z-30 xl:relative xl:top-auto xl:z-auto shadow-lg xl:shadow-none">
+        <div className="flex flex-col gap-4 min-w-0">
+          {/* Video — sticky below the header on mobile so it stays visible while scrolling */}
+          <section className="rounded-2xl bg-[#0d1117] border border-[#21262d] p-2 sm:p-4 sticky top-[60px] z-30 xl:relative xl:top-auto xl:z-auto shadow-2xl xl:shadow-none -mx-4 sm:mx-0 rounded-none sm:rounded-2xl">
             <VideoPlayer ref={videoRef} onModeChange={setVideoMode} partidoId={params.id} />
+
+            {/* Floating "Editar" button — opens drawing editor directly */}
+            {videoMode === "local" && (
+              <button
+                onClick={() => { setEditClipRange(null); setShowDrawEditor(true); }}
+                className="absolute bottom-3 right-3 z-10 flex items-center gap-1.5 px-3 py-2 rounded-full bg-violet-500/90 hover:bg-violet-500 backdrop-blur text-white text-xs font-bold shadow-lg shadow-violet-500/40 transition-all">
+                <Pencil className="w-3.5 h-3.5" />
+                Editar video
+              </button>
+            )}
           </section>
 
           {/* Scoreboard */}

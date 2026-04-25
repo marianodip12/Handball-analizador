@@ -209,7 +209,7 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(({ onModeCha
       {screen==="playing" && mode==="local" && localSrc && (
         <div className="flex flex-col gap-2">
           <div className="relative rounded-xl overflow-hidden border border-[#30363d] bg-black">
-            <video ref={videoRef} src={localSrc} controls playsInline {...{"webkit-playsinline": "true", "x5-playsinline": "true"} as Record<string, string>} className="w-full max-h-[35vh] sm:max-h-[420px] object-contain" onPlay={()=>setIsPlaying(true)} onPause={()=>setIsPlaying(false)} />
+            <video ref={videoRef} src={localSrc} controls playsInline {...{"webkit-playsinline": "true", "x5-playsinline": "true"} as Record<string, string>} className="w-full max-h-[45vh] sm:max-h-[420px] object-contain bg-black rounded-lg" onPlay={()=>setIsPlaying(true)} onPause={()=>setIsPlaying(false)} />
           </div>
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-2 px-3 py-1.5 bg-[#161b22] rounded-lg border border-[#21262d] w-fit">
